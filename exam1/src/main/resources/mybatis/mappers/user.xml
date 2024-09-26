@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.repo.UserRepo">
+
+    <!--
+    Ký tự  <  tương đương  &lt;  .
+    ký tự  >  tương đương  &gt;  .
+-->
+
+    <select id="findAll" parameterType="com.example.demo.model.User">
+        SELECT
+               id, username, password, createdate
+        FROM users ORDER BY id;
+    </select>
+
+    <select id="findByUsername" parameterType="Map">
+        SELECT
+        id, username, password
+        FROM users
+        WHERE username = #{username}
+    </select>
+
+    <select id="getPassWord" parameterType="com.example.demo.model.User">
+        SELECT MD5(#{password})
+    </select>
+
+    <select id="findById" parameterType="com.example.demo.model.User">
+        SELECT * FROM users
+        WHERE id = #{id};
+    </select>
+
+    <select id="findByUD" parameterType="com.example.demo.model.User">
+        SELECT id, username, createdate FROM users
+        WHERE 1 = 1
+        <if test="username != '' and username != null">
+            AND username = #{username}
+        </if>
+        <if test=" createdate != null">
+            AND createdate &lt; #{createdate}
+        </if>
+        ORDER BY id;
+    </select>
+
+    <insert id="insertUser" parameterType="com.example.demo.model.User">
+        INSERT INTO users(username, password, roleid)
+        VALUES (#{username}, MD5(#{password}), #{roleid})
+    </insert>
+
+    <delete id="deleteByUName" parameterType="com.example.demo.model.User">
+        DELETE FROM users
+        WHERE username = #{username};
+    </delete>
+
+<!--    Khi sử dụng <![CDATA[ câu lệnh sql thuần sql chứa các dấu đặc biệt ]]>-->
+    <update id="updateById" parameterType="com.example.demo.model.User">
+       <![CDATA[
+        UPDATE users
+        SET username = #{username}, password = MD5(#{password})
+        WHERE id = #{id}
+          AND NOT EXISTS (
+                SELECT username FROM users
+                WHERE id <> #{id} AND username LIKE #{username}
+            )
+        ]]>
+    </update>
+
+    <select id="findByRoleId" parameterType="com.example.demo.model.User">
+        SELECT * FROM roles
+        WHERE id = #{id}
+    </select>
+</mapper>

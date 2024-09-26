@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.repo.PermissionRepo">
+    <select id="getCheckRole" parameterType="java.util.Map" resultType="com.example.demo.model.User">
+        <![CDATA[
+        SELECT users.id, users.username, users.createdate FROM users
+        INNER JOIN roles ON users.roleid = roles.id
+        WHERE users.id = #{id}
+        AND roles.${action} = true
+        ]]>
+    </select>
+</mapper>
