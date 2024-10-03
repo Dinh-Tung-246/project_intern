@@ -1,0 +1,24 @@
+.form-insert {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    padding: 20px 30px 50px 30px;
+    margin-bottom: 400px;
+}
+
+.form-insert h1{
+    color: aquamarine;
+    margin-bottom: 50px;
+}
+
+.form-insert Button {
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 8px 30px;
+}
+
+.form-insert .back {
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 8px 30px;
+}

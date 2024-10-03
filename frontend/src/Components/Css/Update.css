@@ -1,0 +1,23 @@
+.formUpdate h1{
+    color: aliceblue;
+}
+
+.formUpdate {
+    border-radius: 10px;
+    border: 2px solid #fff;
+    padding: 20px;
+    margin-bottom: 500px;
+    color: #fff;
+}
+
+.formUpdate Button {
+    margin-right: 100px;
+}
+
+.formUpdate .back {
+    margin-left: 100px;
+}
+
+.formUpdate .radiocheck {
+    margin-bottom: 10px;
+}

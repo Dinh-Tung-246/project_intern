@@ -1,0 +1,40 @@
+.list {
+    padding-bottom: 600px;
+    color: aliceblue;
+    text-decoration-color: aliceblue;
+}
+
+.list tr {
+    color: aliceblue;
+}
+
+.list Button{
+    margin-left: 10px;
+}
+
+.formSearch {
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.list .btn-insert{
+    margin: 10px;
+}
+
+.list .prev {
+    margin-left: 0px;
+}
+
+.list .next {
+    margin-left: 100px;
+}
+
+.list .page {
+    margin-left: 100px;
+}
+
+.list .page-size {
+    margin-left: 1000px;
+}
